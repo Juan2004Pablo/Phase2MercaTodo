@@ -31,3 +31,4 @@ Route::get('/admin', function() {
     }
 });
 
+Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');

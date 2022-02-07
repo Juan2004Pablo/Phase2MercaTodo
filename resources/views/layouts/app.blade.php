@@ -32,6 +32,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
+                    @if (Auth::check())
+                    <?php
+                    $user=Auth::user();
+                    ?>
+                    @if($user->IsAdmin())
+                        <ul class="navbar-nav me-auto">
+                          <a class="nav-link" href="{{ route('users.index') }}">{{ __('users') }}</a>
+                        </ul>
+                    @endif
+
+                    @endif
+
                     <ul class="navbar-nav me-auto">
 
                     </ul>
