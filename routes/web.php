@@ -21,4 +21,13 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
+Route::get('/admin', function() {
+    $user=Auth::user();
+    if($user->IsAdmin()){
+        return view('Hola');
+    }
+    else{
+        return view('Hola2');
+    }
+});
 

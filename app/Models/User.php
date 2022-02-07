@@ -41,4 +41,20 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+
+        return  $this->belongsTo ('App\Models\Role');
+    }
+
+    public function IsAdmin() {
+
+        if($this->role->name_rol=='admin'){
+            return true;
+        } else{
+
+            return false;
+        }
+    }
+
 }
