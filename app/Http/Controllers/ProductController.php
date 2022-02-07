@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use DB;
 
 /**
  * Class ProductController
@@ -16,11 +17,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate();
+        $text=trim($request->get('text'));
+        $products=DB::table('products')
+            ->select('product_id','name_product','price','product_image','status')
+            ->where('name_product','LIKE','%'.$text.'%')
+            ->orWhere('price', 'LIKE','%'.$text.'%')
+            ->orderBy('name_product','asc')
+            ->paginate(1);
 
-        return view('product.index', compact('products'))
+        //$products = Product::paginate();
+
+        return view('product.index', compact('products', 'text'))
             ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
     }
 

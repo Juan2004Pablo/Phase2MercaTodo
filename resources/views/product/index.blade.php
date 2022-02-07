@@ -89,6 +89,18 @@
 @if($user->IsClient())
 <div class="container-fluid">
         <div class="row">
+            <div class="com-xl-12">
+                <form action="{{route('products.index')}}" method="get">
+                    <div class="form-row">
+                        <div class="col-sm-4 my-1">
+                            <input type="text" class="form-control" name="text" value='{{$text}}'>
+                        </div>
+                        <div class="col-auto my-1">
+                            <input type="submit" class="btn btn-prymary"  value="Buscar">
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
