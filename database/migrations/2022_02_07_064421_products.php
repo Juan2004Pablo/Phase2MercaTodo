@@ -18,7 +18,6 @@ class Products extends Migration
             $table->string('name_product');
             $table->integer('price');
             $table->string('product_image');
-            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('product_id') }}
-            {{ Form::text('product_id', $product->product_id, ['class' => 'form-control' . ($errors->has('product_id') ? ' is-invalid' : ''), 'placeholder' => 'Product Id']) }}
+            {{ Form::text('product_id', $product->product_id, ['class' => 'form-control' . ($errors->has('product_id') ? ' is-invalid' : ''), 'placeholder' => 'product_id']) }}
             {!! $errors->first('product_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -19,7 +19,11 @@
         <div class="form-group">
             {{ Form::label('product_image') }}
             {{ Form::text('product_image', $product->product_image, ['class' => 'form-control' . ($errors->has('product_image') ? ' is-invalid' : ''), 'placeholder' => 'Product Image']) }}
-            {!! $errors->first('product_image', '<div class="invalid-feedback">:message</p>') !!}
+             <!-- $errors->first('product_image', '<div class="invalid-feedback">:message</p>') !! -->
+        <p>
+        <label for="imageFile"> Selecciona una imagen: </label>
+        <input type="file" id="imageFile" accept="image/*" multiple>
+        </p>
         </div>
 
     </div>

@@ -51,7 +51,13 @@
                     ?>
                     @if($user->IsAdmin())
                         <ul class="navbar-nav me-auto">
-                          <a class="nav-link" href="{{ route('products.index') }}">{{ __('products') }}</a>
+                          <a class="nav-link" href="{{ route('products.index') }}">{{ __('Products') }}</a>
+                        </ul>
+                    @endif
+
+                    @if($user->IsClient())
+                        <ul class="navbar-nav me-auto">
+                          <a class="nav-link" href="{{ route('products.index') }}">{{ __('Products') }}</a>
                         </ul>
                     @endif
 
