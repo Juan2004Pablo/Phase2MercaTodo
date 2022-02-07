@@ -45,6 +45,18 @@
 
                     @endif
 
+                    @if (Auth::check())
+                    <?php
+                    $user=Auth::user();
+                    ?>
+                    @if($user->IsAdmin())
+                        <ul class="navbar-nav me-auto">
+                          <a class="nav-link" href="{{ route('products.index') }}">{{ __('products') }}</a>
+                        </ul>
+                    @endif
+
+                    @endif
+
                     <ul class="navbar-nav me-auto">
 
                     </ul>
